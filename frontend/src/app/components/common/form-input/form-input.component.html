@@ -1,0 +1,13 @@
+<div>
+  <label class="input-label" for="{{ label }}"
+    >{{ label }}<abbr title="required">*</abbr></label
+  >
+  <input
+    id="{{ label }}"
+    class="input bg-grey-lighter text-grey-darker focus-within:border-blue-500"
+    type="{{type}}"
+    placeholder="{{ placeholder }}"
+    [(ngModel)]="value"
+    required
+  />
+</div>

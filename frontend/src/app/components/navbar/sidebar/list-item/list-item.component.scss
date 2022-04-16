@@ -1,0 +1,6 @@
+.link {
+  @apply flex flex-row items-center h-10 transform hover:translate-x-2 transition-transform ease-in duration-200 overflow-hidden text-gray-500 hover:text-gray-800;
+}
+.link-text {
+  @apply cursor-pointer flex text-sm items-center font-medium ml-1 whitespace-nowrap w-full h-full;
+}

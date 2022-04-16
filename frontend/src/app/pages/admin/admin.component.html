@@ -1,0 +1,6 @@
+<section>
+  <app-food-list [role]="'admin'"></app-food-list>
+</section>
+<section *ngIf="modalState.open" class="modal-section">
+  <app-modal ></app-modal>
+</section>

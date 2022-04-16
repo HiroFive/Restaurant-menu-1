@@ -1,0 +1,58 @@
+@import '../../styles/color.scss';
+
+:host {
+  @apply fixed float-right cursor-pointer right-4 bottom-4 z-50 opacity-90;
+}
+:host:hover {
+  @apply opacity-100;
+}
+
+.scroll,
+.scroll:before {
+  @apply absolute left-1/2;
+}
+.scroll-container {
+  @apply border-none w-12 h-12 shadow-2xl;
+  border-radius: 2.5rem;
+  background-color: $green;
+}
+.scroll {
+  @apply w-4 h-4 top-1/2;
+  margin: -0.35rem 0 0 -0.5rem;
+  -webkit-transform: rotate(225deg);
+  border-left: none;
+  border-top: none;
+  border-right: 2px #fff solid;
+  border-bottom: 2px #fff solid;
+  &:before {
+    content: '';
+    @apply w-2 h-2 top-1/2;
+    top: 50%;
+    margin: -0.5rem 0 0 -0.5rem;
+    border-left: none;
+    border-top: none;
+    border-right: 1px #fff solid;
+    border-bottom: 1px #fff solid;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: arrow;
+  }
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(2px, 2px);
+  }
+}
+@media print {
+  .scroll {
+    @apply hidden;
+  }
+  :host {
+    @apply hidden;
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../../styles/root.scss';
+
+.show-hide-btn {
+}
+@media print {
+  .show-hide-btn {
+      @apply hidden;
+  }
+}

@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+exports.infoRepository = exports.categoryRepository = exports.foodRepository = void 0;
+var food_repository_1 = require("./food.repository");
+var category_repository_1 = require("./category.repository");
+var info_repository_1 = require("./info.repository");
+var foodRepository = new food_repository_1.FoodRepository();
+exports.foodRepository = foodRepository;
+var categoryRepository = new category_repository_1.CategoryRepository();
+exports.categoryRepository = categoryRepository;
+var infoRepository = new info_repository_1.InfoRepository();
+exports.infoRepository = infoRepository;

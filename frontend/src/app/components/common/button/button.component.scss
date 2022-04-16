@@ -1,0 +1,56 @@
+@import "../../../styles/color.scss";
+
+.regular-btn {
+  @apply px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg;
+}
+.color {
+  &-red {
+    @apply bg-red-400 hover:bg-red-500;
+  }
+  &-green {
+    @apply bg-green-400 hover:bg-green-500;
+  }
+  &-yellow {
+    @apply bg-yellow-400 hover:bg-yellow-500;
+  }
+  &-gray {
+    @apply bg-gray-400 hover:bg-gray-500;
+  }
+  &-white{
+    @apply bg-white hover:bg-gray-100 border text-gray-600;
+  }
+  &-default {
+    @apply bg-gray-700 hover:bg-gray-900;
+  }
+  &-dark-green {
+    background-color: $green;
+    &:hover{
+      background-color: $greenHover;
+    }
+  }
+}
+
+.size {
+  &-tiny{
+    @apply p-1.5 text-xs;
+  }
+  &-small {
+    @apply px-2 py-2 text-sm;
+  }
+  &-medium {
+    @apply px-4 py-2 text-sm;
+  }
+  &-large {
+    @apply px-5 py-2 text-lg;
+  }
+}
+
+.regular-btn:disabled,
+.regular-btn[disabled] {
+  @apply bg-gray-300 hover:shadow-none;
+}
+@media print {
+  .regular-btn{
+    @apply hidden;
+  }
+}

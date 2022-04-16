@@ -1,0 +1,7 @@
+<button
+  class="regular-btn color-{{ color }} size-{{ size }} {{ class }}"
+  (click)="handleClick($event)"
+  [disabled]="disabled"
+>
+  <ng-content></ng-content>
+</button>

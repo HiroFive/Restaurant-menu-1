@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  &-sm {
+    max-width: 640px;
+  }
+  &-md {
+    max-width: 768px;
+  }
+  &-lg {
+    max-width: 1024px;
+  }
+  &-xl {
+    max-width: 1280px;
+  }
+  &-2xl {
+    max-width: 1536px;
+  }
+}
+
+.main-container {
+  @extend .container-lg;
+  margin: auto;
+  position: relative;
+  background-color: #fdfaf8;
+  min-height: 100%;
+  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media (max-width: 640px) {
+  .main-container {
+    margin: unset;
+    width: 100%;
+  }
+}
+@media print {
+  .main-container {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,117 @@
+@import '../../styles/color.scss';
+@import '../../styles/root.scss';
+
+.card-container {
+  @apply relative p-4;
+}
+.image-brightness {
+  @apply filter brightness-50;
+}
+.card {
+  @apply flex;
+  .food-image {
+    @apply m-auto shadow-xl;
+    min: {
+      height: 8.5rem;
+      width: 8.5rem;
+    }
+    max: {
+      height: 10rem;
+      width: 10rem;
+    }
+  }
+  .food-info {
+    @apply ml-4;
+    &-header {
+      .food-title {
+        @apply text-xl font-semibold;
+      }
+      .food-subtitle {
+        &-price {
+          color: $green;
+          @apply text-base font-bold;
+        }
+        &-weight {
+          @apply p-3 text-sm font-bold;
+          color: $gray;
+        }
+      }
+    }
+    &-footer {
+      @apply text-xs break-words;
+      color: $lite-gray;
+    }
+  }
+}
+.edit-panel {
+  @apply absolute flex right-4 items-center bg-black bg-opacity-25 p-1 z-10 rounded-2xl;
+}
+
+@media (max-width: 768px) {
+  .card {
+    @apply block;
+    .food-image {
+      @apply block;
+      max: {
+        height: 80%;
+        width: 80%;
+      }
+    }
+    .food-info {
+      text-align: center;
+    }
+  }
+}
+
+@media print {
+  .edit-panel {
+    @apply hidden;
+  }
+  .image-brightness {
+    @apply filter brightness-100;
+  }
+  .card {
+    @apply grid w-screen justify-items-start grid-cols-4;
+    page-break-before: auto;
+    page-break-after: auto;
+    page-break-inside: avoid;
+    .food-image {
+      display: block;
+      max: {
+        height: 6.5rem;
+        width: 6.5rem;
+      }
+    }
+    .food-info {
+      @apply no-underline w-full col-span-3;
+      position: relative;
+      text-align: left;
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        .food-title {
+          @apply text-2xl font-semibold mb-2;
+        }
+        .food-subtitle {
+          @apply flex justify-end;
+
+          flex-direction: row-reverse;
+          &-comma {
+            display: none;
+          }
+          &-price {
+            @apply text-base pr-8;
+          }
+          &-weight {
+            @apply absolute m-1 text-sm absolute -bottom-2 right-4;
+            color: $lite-gray;
+          }
+        }
+      }
+      &-footer {
+        @apply mr-6;
+        color: $lite-gray;
+      }
+    }
+  }
+}

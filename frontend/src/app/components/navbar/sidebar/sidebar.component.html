@@ -1,0 +1,70 @@
+<section class="sidebar-continer">
+  <div
+    [ngClass]="{ 'sidebar-hidden': !hideSideNav.visible }"
+    class="sidebar-body"
+  >
+    <div class="mobile-wifi-password">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+        />
+      </svg>
+      <span class="ml-1">
+        {{ wifiPassword }}
+      </span>
+    </div>
+    <ul class="links-container">
+      <app-button
+        *ngIf="isAdmin"
+        class="flex text-center w-full whitespace-nowrap"
+        (click)="openAddCategoryModal()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
+        <span>Add new category</span>
+      </app-button>
+      <app-list-item
+        [type]="'root'"
+        [isAdmin]="isAdmin"
+        [category]="categoryAll"
+      ></app-list-item>
+      <app-list-item
+        *ngFor="let category of categories"
+        [type]="'unique'"
+        [isAdmin]="isAdmin"
+        [category]="category"
+      ></app-list-item>
+      <app-list-item
+        *ngIf="isAdmin"
+        [type]="'unCategory'"
+        [isAdmin]="isAdmin"
+        [category]="categoryFoodWithoutCategory"
+      ></app-list-item>
+    </ul>
+  </div>
+</section>
+<section
+  class="sidebar-overlay"
+  [ngClass]="{ hidden: !hideSideNav.visible }"
+></section>

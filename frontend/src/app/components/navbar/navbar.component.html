@@ -1,0 +1,87 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navigate-container">
+      <app-button [size]="'tiny'" (click)="toggleSideNav()" class="menu-toggle">
+        <svg
+          *ngIf="!hideSideNav.visible"
+          xmlns="http://www.w3.org/2000/svg"
+          class="menu-toggle-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+        <svg
+          *ngIf="hideSideNav.visible"
+          xmlns="http://www.w3.org/2000/svg"
+          class="menu-toggle-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </app-button>
+    </div>
+    <a href="/" class="navbar-logo">
+      <img alt="main-logo" src="../../../assets/logo/demoLogo.svg" />
+    </a>
+    <div class="navbar-wifi">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 wifi-icon hidden md:block"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+        />
+      </svg>
+      <span class="ml-1 wifi-container hidden md:block">
+        {{ info.wifiPassword }}
+      </span>
+      <app-button
+        [size]="'small'"
+        [color]="'green'"
+        class="md:ml-1.5 menu-toggle-icon"
+        *ngIf="isAdmin"
+        (click)="openEditInfoModal()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+          />
+        </svg>
+      </app-button>
+    </div>
+  </div>
+</nav>
+<app-sidebar
+  *ngIf="!loading"
+  (toggleSideNav)="toggleSideNav()"
+  [isAdmin]="isAdmin"
+></app-sidebar>

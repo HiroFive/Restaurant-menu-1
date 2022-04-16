@@ -1,0 +1,80 @@
+@import '../../styles/root.scss';
+@import '../../styles/color.scss';
+
+.list-container {
+  @apply grid gap-6 grid-cols-2 justify-items-center pb-8 px-4;
+}
+.tape-container {
+  @apply bg-gray-400 p-4 text-xl relative flex w-full justify-center items-center;
+  background: url('../../../assets/images/tape.svg') center center;
+  background-repeat: no-repeat;
+  background-size: calc(min(440px, 80%)) calc(min(350px, 100%)), contain;
+}
+
+.edit-category-panel {
+  @apply mb-5 flex items-center justify-center p-1 w-96 md:w-1/2 rounded-2xl;
+}
+
+.edit-subcategory-panel {
+  @apply flex items-center bg-black bg-opacity-25 p-1 rounded-2xl;
+}
+.subcategory-title {
+  @apply pb-1 text-2xl flex justify-center;
+  background: url('../../../assets/images/underline_gamme.png') center bottom
+    no-repeat;
+  color: $greenLight;
+}
+.category-title {
+  @apply text-3xl text-white;
+}
+
+@media (max-width: 768px) {
+  .list-container {
+    @apply grid-cols-1 gap-8;
+  }
+  .tape-container {
+    background-size: cover;
+  }
+}
+@media print {
+  .page-braked {
+    @apply pt-4;
+    page-break-after: always;
+  }
+  .body-section {
+    @apply py-0;
+  }
+  .tape-container {
+    @apply mb-0;
+    background-size: calc(min(360px, 80%)) calc(min(350px, 100%)), contain;
+  }
+  .subcategory-title {
+    @apply mb-4;
+  }
+  .sub-title {
+    counter-increment: page;
+    content: counter(page);
+    @apply no-underline block;
+    color: $greenLight !important;
+  }
+  .edit-subcategory-panel {
+    @apply bg-transparent;
+  }
+  .list-container {
+    @apply gap-8;
+    overflow: visible;
+  }
+  @page {
+    size: A4;
+    margin: 1cm;
+    padding: 1.5cm;
+    overflow: visible;
+    @top-center {
+      content: element(pageHeader);
+    }
+
+    @bottom-center {
+      content: counter(page) '/' counter(pages);
+    }
+  }
+}

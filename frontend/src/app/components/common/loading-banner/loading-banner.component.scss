@@ -1,0 +1,10 @@
+.not-found-section {
+    @apply block mx-auto w-1/2 pb-16 pt-8;
+  }
+  .not-found-container {
+    @apply flex justify-center flex-col;
+  }
+  .not-found-title {
+    @apply text-3xl text-center p-4;
+  }
+  

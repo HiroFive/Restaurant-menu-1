@@ -1,0 +1,103 @@
+@import '../../app.component.scss';
+@import '../../styles/color.scss';
+
+.navbar-title {
+  @apply hidden sm:block absolute left-2/4 text-gray-900 font-extrabold text-center text-2xl md:text-4xl transform -translate-x-2/4;
+  font: {
+    family: 'Cabin Sketch', cursive;
+  }
+}
+.navbar {
+  @extend .container;
+  @apply fixed lg:max-w-5xl z-40;
+  background-color: $green;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+
+  &-container {
+    @apply flex w-full items-center m-auto justify-between;
+
+    .navigate-container {
+      @apply w-64 flex items-center;
+      .menu-toggle {
+        @apply ml-4 bg-transparent rounded-none;
+        &-icon {
+          @apply cursor-pointer m-1 h-5 w-5;
+        }
+      }
+    }
+  }
+  &-sub-container {
+    @extend .navbar-container;
+
+    flex-direction: row;
+    list-style: none;
+    width: unset;
+    position: relative;
+    padding: {
+      top: 0.5rem;
+      bottom: 0.5rem;
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      border-bottom: 3px solid $yellow;
+      width: 60%;
+      transform: translateX(-50%);
+      bottom: -0.1rem;
+      left: 50%;
+    }
+  }
+
+  &-wifi {
+    @apply p-2 pr-4 text-white text-sm md:px-4 text-sm w-64 text-center flex items-center justify-end;
+  }
+}
+.navbar-logo {
+  @apply h-14;
+  img {
+    @apply absolute left-1/2 transform -translate-x-1/2  md:relative md:my-2 h-20 w-16 md:h-14 md:w-full;
+  }
+}
+@media (max-width: 640px) {
+  .navbar {
+    &-sub-container {
+      flex-direction: column;
+      width: 70%;
+      &:after {
+        width: 70%;
+      }
+    }
+  }
+}
+@media print {
+  *,
+  *:before,
+  *:after,
+  *:first-letter,
+  p:first-line,
+  div:first-line,
+  blockquote:first-line,
+  li:first-line {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  .navbar-logo {
+    background-color: $green;
+    img {
+      @apply h-16;
+    }
+  }
+  .wifi-icon{
+    display: block !important;
+  }
+  .wifi-container{
+    display: block !important;
+  }
+  .navbar {
+    @apply hidden;
+    background-color: $green;
+  }
+  .navbar-title {
+    width: 26rem;
+  }
+}

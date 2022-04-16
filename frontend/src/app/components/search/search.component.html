@@ -1,0 +1,28 @@
+<form [formGroup]="searchGroup" class="search-container">
+  <div class="search-body">
+    <select
+      name="searchBy"
+      formControlName="searchBy"
+      class="
+        search-input
+        focus-within:border-blue-500
+        bg-grey-lighter
+        text-grey-darker
+      "
+    >
+      <option *ngFor="let category of searchCategories" [ngValue]="category">
+        {{ category }}
+      </option>
+    </select>
+    <input
+      class="search-select bg-grey-lighter text-grey-darker"
+      type="text"
+      name="searchInput"
+      formControlName="searchInput"
+      placeholder="Search..."
+    />
+    <app-button class="flex" [color]="'dark-green'" (click)="submit()">
+      Search
+    </app-button>
+  </div>
+</form>

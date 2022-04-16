@@ -1,0 +1,28 @@
+.menu-title {
+  color: #f58546;
+  font: {
+    family: "Cabin Sketch", cursive;
+    size: 3.5rem;
+  }
+  border-bottom: 3px solid #ffe95c;
+  text-align: center;
+  margin: auto;
+  width: 26rem;
+  padding: 0.2rem {
+    bottom: 0rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-title {
+    font: {
+      size: 2.5rem;
+    }
+    width: 18rem;
+  }
+}
+@media print {
+  .menu-title {
+    width: 26rem;
+  }
+}

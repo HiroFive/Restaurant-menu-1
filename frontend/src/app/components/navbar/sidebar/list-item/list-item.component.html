@@ -1,0 +1,14 @@
+<li>
+  <a routerLinkActive="active" class="link">
+    <span *ngIf="showButtons">
+      <app-show-hide-button
+        class="text-gray-600"
+        [category]="category"
+      ></app-show-hide-button>
+    </span>
+
+    <span class="link-text" (click)="changeCategory()">{{
+      category.title
+    }}</span>
+  </a>
+</li>

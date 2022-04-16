@@ -1,0 +1,22 @@
+@import '../../styles/color.scss';
+
+.footer-container {
+  @apply  p-4 z-40 h-16 md:h-12 w-full py-1 text-center absolute bottom-0;
+  background-color: $lightBlack;
+}
+.text-container{
+  @apply text-white text-xs p-3 md:flex justify-center items-center;
+}
+.footer-contact-number {
+  @apply text-white border-white md:border-r pr-2;
+}
+.footer-contact-address {
+  @apply block pl-2 text-white;
+}
+
+
+@media print {
+  .footer-container {
+    @apply hidden;
+  }
+}
